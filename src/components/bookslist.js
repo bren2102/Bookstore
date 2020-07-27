@@ -11,9 +11,7 @@ class BooksList extends React.Component {
       books.map((book) => {
         return(
           <tr>
-            <th>{ book.Id }</th>
-            <th>{ book.Title }</th>
-            <th>{ book.Category }</th>
+            book
           </tr>
         )
       })
