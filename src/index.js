@@ -63,7 +63,7 @@ const initialState = {
 
 }
 
-const store = createStore(books, initialState);
+const store = createStore(initialState, books);
 
 ReactDOM.render( <
   React.StrictMode >

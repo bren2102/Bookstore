@@ -1,17 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { connect } from 'react-redux';
 
 class BooksList extends React.Component {
   constructor(props) {
     super(props);
-    const books = state => ({ books: [ state.books ] });
+    const books = state => ({ books: [ state.initialState ] });
     this.state = { books }
   }
 
   render(){
     const libros = ["A", "B", "C"];
-    const books = state => ({ books: [ state.books ] });
+    const books = state => ({ books: [ state.initialState ] });
     console.log(books)
     return (
       <div id="bookslist">
