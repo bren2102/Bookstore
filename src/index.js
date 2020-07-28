@@ -9,7 +9,7 @@ import {
 import {
   createStore
 } from 'redux'
-import books from './reducers/books';
+import combineReducers from './reducers/index';
 
 const initialState = {
   categories: [{
@@ -63,7 +63,7 @@ const initialState = {
 
 }
 
-const store = createStore(books, initialState);
+const store = createStore(combineReducers, { books: initialState.books });
 
 ReactDOM.render( <
   React.StrictMode >

@@ -1,12 +1,6 @@
 import { CREATE_BOOK, DELETE_BOOK } from '../actions/index';
 
-import Redux from 'redux';
-
-const initialState = {
-  books: []
-}
-
-function books(state = initialState, action) {
+function books(state = [], action) {
   switch (action.type) {
     case DELETE_BOOK:
       return Object.assign({}, state, {
@@ -14,7 +8,7 @@ function books(state = initialState, action) {
       })
     case CREATE_BOOK:
       return Object.assign({}, state, {
-        todos: [
+        books: [
           ...state.books,
           {
             text: action.text,

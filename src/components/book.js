@@ -16,9 +16,11 @@ class Book extends React.Component {
     return (
       <td>
         <p> {id} </p>
-        <p> {title} </p> 
+        <p> {title} </p>
         <p> {category} </p>
       </td>
     )
   }
 }
+
+export default Book;
