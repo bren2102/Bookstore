@@ -3,14 +3,14 @@ import React from 'react';
 class BooksForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { book: '' };
+    this.state = { book: '', category: '' };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
-    this.setState({ book: event.target.value });
+    this.setState({ book: event.value, category: event.target.value });
   }
 
   handleSubmit(event) {
@@ -26,7 +26,7 @@ class BooksForm extends React.Component {
         </label>
         <label>
           Select category:
-          <select value={this.state.book} onChange={this.handleChange}>
+          <select value={this.state.category} onChange={this.handleChange}>
             <option value="Action">Action</option>
             <option value="Biography">Biography</option>
             <option value="History">History</option>

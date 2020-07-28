@@ -1,5 +1,6 @@
 import { CREATE_BOOK, DELETE_BOOK } from '../actions/index';
 
+import Redux from 'redux';
 
 const initialState = {
   books: []
