@@ -8,9 +8,6 @@ class BooksForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  /*
-  [, "", "", "", "", "Learning", ""]
-  */
 
   handleChange(event) {
     this.setState({ book: event.target.value });
@@ -25,7 +22,7 @@ class BooksForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Book title:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text" value={this.state.book} onChange={this.handleChange} />
         </label>
         <label>
           Select category:
@@ -44,3 +41,5 @@ class BooksForm extends React.Component {
     );
   }
 }
+
+export default BooksForm;
