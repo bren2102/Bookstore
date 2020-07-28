@@ -3,21 +3,20 @@ import { CREATE_BOOK, DELETE_BOOK } from '../actions/index';
 function books(state = [], action) {
   switch (action.type) {
     case DELETE_BOOK:
-      return Object.assign({}, state, {
-        DELETE_BOOK: action.filter
-      })
+      return { ...state, DELETE_BOOK: action.filter };
     case CREATE_BOOK:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         books: [
           ...state.books,
           {
             text: action.text,
-            completed: false
-          }
-        ]
-      })
+            completed: false,
+          },
+        ],
+      };
     default:
-      return state
+      return state;
   }
 }
 

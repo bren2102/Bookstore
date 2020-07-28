@@ -13,20 +13,18 @@ class BooksForm extends React.Component {
     this.setState({ book: event.value, category: event.target.value });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-  }
-
   render() {
+    const { book } = this.state;
+    const { category } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form id="bookForm">
+        <label htmlFor="bookForm">
           Book title:
-          <input type="text" value={this.state.book} onChange={this.handleChange} />
+          <input type="text" value={book} onChange={this.handleChange} />
         </label>
-        <label>
+        <label htmlFor="bookForm">
           Select category:
-          <select value={this.state.category} onChange={this.handleChange}>
+          <select value={category} onChange={this.handleChange}>
             <option value="Action">Action</option>
             <option value="Biography">Biography</option>
             <option value="History">History</option>
