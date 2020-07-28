@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import BooksList from './bookslist';
+import BooksList from '../containers/bookslist';
 import BooksForm from './booksform';
 
 class App extends React.Component {

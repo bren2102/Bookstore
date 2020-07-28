@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Book from './book';
+import Book from '../components/book';
 
 const BooksList = props => {
   const { books } = props;
