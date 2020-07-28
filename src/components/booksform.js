@@ -6,7 +6,6 @@ class BooksForm extends React.Component {
     this.state = { book: '', category: '' };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
