@@ -13,27 +13,27 @@ import combineReducers from './reducers/index';
 
 const initialState = {
   books: [{
-    id: Math.random(),
+    id: Math.floor(Math.random() * 10) + 1,
     title: 'The Hunger Games',
     category: 'Action',
   },
   {
-    id: Math.random(),
+    id: Math.floor(Math.random() * 20) + 11,
     title: 'Harry Potter and the Order of the Phoenix',
     category: 'Action',
   },
   {
-    id: Math.random(),
+    id: Math.floor(Math.random() * 30) + 21,
     title: 'To Kill a Mockingbird',
     category: 'Action',
   },
   {
-    id: Math.random(),
+    id: Math.floor(Math.random() * 40) + 31,
     title: 'Pride and Prejudice',
     category: 'Action',
   },
   {
-    id: Math.random(),
+    id: Math.floor(Math.random() * 50) + 41,
     title: 'Twilight',
     category: 'Action',
   },
