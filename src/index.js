@@ -12,28 +12,6 @@ import * as serviceWorker from './serviceWorker';
 import combineReducers from './reducers/index';
 
 const initialState = {
-  categories: [{
-    name: 'Action',
-  },
-  {
-    name: 'Biography',
-  },
-  {
-    name: 'History',
-  },
-  {
-    name: 'Horror',
-  },
-  {
-    name: 'Kids',
-  },
-  {
-    name: 'Learning',
-  },
-  {
-    name: 'Sci-Fi',
-  },
-  ],
   books: [{
     id: Math.random(),
     title: 'The Hunger Games',
@@ -60,7 +38,6 @@ const initialState = {
     category: 'Action',
   },
   ],
-
 };
 
 const store = createStore(combineReducers, { books: initialState.books });
