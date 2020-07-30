@@ -7,9 +7,9 @@ import { REMOVEBOOK } from '../actions/index';
 const BooksList = props => {
   const { books, removeBook } = props;
 
-  const handleRemoveBook = (book) => {
+  const handleRemoveBook = book => {
     removeBook(book);
-  }
+  };
 
   return (
     <div id="bookslist">
@@ -22,7 +22,7 @@ const BooksList = props => {
             <tr key={book.id}>
               <Book id={book.id} title={book.title} category={book.category} />
               <td>
-                <button onClick={() => { handleRemoveBook(book.id) }}>Remove Book</button>
+                <button type="button" onClick={() => { handleRemoveBook(book.id); }}>Remove Book</button>
               </td>
             </tr>
           ))}
@@ -43,12 +43,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 BooksList.propTypes = {
-  books: PropTypes.array.isRequired,
+  books: PropTypes.objectOf(PropTypes.array).isRequired,
   removeBook: PropTypes.func.isRequired,
-};
-
-BooksList.defaultProps = {
-  books: [],
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BooksList);
