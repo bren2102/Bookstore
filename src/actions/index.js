@@ -1,12 +1,12 @@
 export const CREATE_BOOK = 'CREATE_BOOK';
-export const DELETE_BOOK = 'DELETE_BOOK';
+export const REMOVE_BOOK = 'REMOVE_BOOK';
 
 export const CREATEBOOK = book => ({
   type: CREATE_BOOK, book
 })
 
-export const DELETEBOOK = book => ({
-  type: DELETE_BOOK, book
+export const REMOVEBOOK = remove => ({
+  type: REMOVE_BOOK, remove
 })
 
 export default CREATEBOOK;

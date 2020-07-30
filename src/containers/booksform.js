@@ -65,7 +65,6 @@ BooksForm.propTypes = {
 const mapDispatchToProps = dispatch => ({
   addBook: book => {
     dispatch(CREATEBOOK(book));
-    console.log(book);
   },
 });
 
