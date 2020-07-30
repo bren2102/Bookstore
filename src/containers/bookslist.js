@@ -36,4 +36,4 @@ BooksList.defaultProps = {
   books: [],
 };
 
-export default connect(mapStateToProps, null)(BooksList);
+export default connect(mapStateToProps)(BooksList);

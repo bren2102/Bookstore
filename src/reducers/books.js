@@ -1,10 +1,10 @@
-import { CREATEBOOK, DELETEBOOK } from '../actions/index';
+import { CREATE_BOOK, DELETE_BOOK } from '../actions/index';
 
 function books(state = [], action) {
   switch (action.type) {
-    case DELETEBOOK:
+    case DELETE_BOOK:
       return { ...state, DELETE_BOOK: action.filter };
-    case CREATEBOOK:
+    case CREATE_BOOK:
       return [
         ...state,
         action.book,
