@@ -3,6 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Book extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      id: 0,
+      title: null,
+      category: null,
+    }
+  }
   render() {
     const { title } = this.props;
     const { id } = this.props;
