@@ -12,13 +12,21 @@ const BooksList = props => {
     removeBook(book);
   };
 
+  let x = false;
+
   const handleFilterChange = category => {
-    categoryFilter(category.target.value);
-    newState = filter;
-    console.log(newState);
+    // x = true; 
+    // books = [...filter.filter(book => book.category === categoryFilter(category.target.value))];
+    // console.log(category.target.value);
+    // console.log(books);
+    // return x;
+    return categoryFilter(category.target.value);
   };
 
+
   return (
+  console.log(handleFilterChange),
+
     <div id="bookslist">
       <CategoryFilter handleFilterChange={ handleFilterChange }/>
       <table style={{

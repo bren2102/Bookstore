@@ -4,11 +4,7 @@ import books from './books';
 function filter(state = [], action) {
   switch (action.type) {
     case CHANGE_FILTER:
-      if(action.filter === 'ALL'){
-        return state;
-      } else {
-        return [...state.filter(book => book.category === action.filter)];
-      }
+      return action.filter;
     default:
       return state;
   }
