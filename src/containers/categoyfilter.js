@@ -1,19 +1,16 @@
 import React from 'react';
 
-const CategoryFilter = ({categoryFilter}) => {
+const CategoryFilter = (props) => {
   const categories = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
   return (
-    <form id="filterForm" name="myForm" onSumbit={console.log('test')}>
-      <label htmlFor="filterForm">
+      <label>
         Select category:
-            <select name="categoryName" onChange={event => categoryFilter(event)}>
+            <select name="categoryName" onChange={event => props.handleFilterChange(event)} value='ALL'>
           {categories.map(category => (
             <option key={category} value={category}>{category}</option>
           ))}
         </select>
       </label>
-      <input type="submit" value="Filter" />
-    </form>
   );
 }
 

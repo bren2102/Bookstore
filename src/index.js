@@ -20,27 +20,27 @@ const initialState = {
   {
     id: Math.floor(Math.random() * 20) + 11,
     title: 'Harry Potter and the Order of the Phoenix',
-    category: 'Action',
+    category: 'Sci-Fi',
   },
   {
     id: Math.floor(Math.random() * 30) + 21,
     title: 'To Kill a Mockingbird',
-    category: 'Action',
+    category: 'Biography',
   },
   {
     id: Math.floor(Math.random() * 40) + 31,
     title: 'Pride and Prejudice',
-    category: 'Action',
+    category: 'History',
   },
   {
     id: Math.floor(Math.random() * 50) + 41,
     title: 'Twilight',
-    category: 'Action',
+    category: 'Kids',
   },
   ],
 };
 
-const store = createStore(combineReducers, { books: initialState.books });
+const store = createStore(combineReducers, { books: initialState.books, filter: initialState.books });
 
 ReactDOM.render(
   <React.StrictMode>
