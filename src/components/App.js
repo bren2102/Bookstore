@@ -2,11 +2,12 @@
 import React from 'react';
 import BooksList from '../containers/bookslist';
 import BooksForm from '../containers/booksform';
-
+import CategoryFilter from '../containers/categoyfilter';
 class App extends React.Component {
   render() {
     return (
       <div id="App">
+        <CategoryFilter />
         <BooksList />
         <BooksForm />
       </div>
