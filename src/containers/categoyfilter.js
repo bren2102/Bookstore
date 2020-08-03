@@ -5,7 +5,7 @@ const CategoryFilter = (props) => {
   return (
       <label>
         Select category:
-            <select name="categoryName" onChange={event => props.handleFilterChange(event)} value='ALL'>
+            <select name="categoryName" onChange={event => props.handleFilterChange(event)}>
           {categories.map(category => (
             <option key={category} value={category}>{category}</option>
           ))}
