@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { REMOVEBOOK, CHANGEFILTER } from '../actions/index';
-import CategoryFilter from './categoyfilter';
+import CategoryFilter from '../components/categoyfilter';
 import BookStore from './bookstore';
 
 const BooksList = props => {
