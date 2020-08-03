@@ -1,4 +1,4 @@
-# Bookstore CMS
+# Bookstore CMS - WIP Filter Reducer
 A bookstore application made with reactjs.
 
 ## Project specifications
