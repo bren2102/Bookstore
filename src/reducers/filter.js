@@ -1,9 +1,10 @@
 import { CHANGE_FILTER } from '../actions/index';
 
-function filter(state = [], action = null) {
+function filter(state = [], action) {
   switch (action.type) {
     case CHANGE_FILTER:
-      return action.filter;
+      return [...state.filter(book => book.category === action.filter)];
+      // (action.filter === 'All') ? [...state] :
     default:
       return state;
   }

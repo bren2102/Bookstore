@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { REMOVEBOOK, CHANGEFILTER } from '../actions/index';
@@ -6,8 +6,8 @@ import CategoryFilter from './categoyfilter';
 import BookStore from './bookstore';
 
 const BooksList = props => {
-  const { books, removeBook} = props;
-  const [listOfBooks, setBooks] = useState(books);
+  const { books, removeBook, categoryFilter, filter} = props;
+  const [listOfBooks, setBooks] = useState(filter);
 
   const handleRemoveBook = book => {
     removeBook(book);
@@ -17,9 +17,10 @@ const BooksList = props => {
     if(category === "All"){
       return listOfBooks;
     }
-    console.log(category.target.value);
+    categoryFilter(category.target.value);
+    console.log(filter);
 
-    return setBooks((category.target.value === 'All') ? books : books.filter(book => book.category === category.target.value));
+    return setBooks(filter);
   };
 
   return (
@@ -32,7 +33,7 @@ const BooksList = props => {
 
 const mapStateToProps = state => ({
   books: state.books,
-  filter: state.books
+  filter: state.filter
 });
 
 const mapDispatchToProps = dispatch => ({
