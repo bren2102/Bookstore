@@ -1,42 +1,31 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Book from '../components/book';
 import { REMOVEBOOK, CHANGEFILTER } from '../actions/index';
 import CategoryFilter from './categoyfilter';
+import BookStore from './bookstore';
 
 const BooksList = props => {
-  let { books, removeBook, categoryFilter} = props;
+  const { books, removeBook} = props;
+  const [listOfBooks, setBooks] = useState(books);
+
   const handleRemoveBook = book => {
     removeBook(book);
   };
 
-  const handleFilterChange = (category = 'ALL') => {
-    if(category === 'ALL'){
-      return books
+  const handleFilterChange = (category = "All") => {
+    if(category === "All"){
+      return listOfBooks;
     }
     console.log(category.target.value);
-    return books.filter(book => book.category === category.target.value);
+
+    return setBooks((category.target.value === 'All') ? books : books.filter(book => book.category === category.target.value));
   };
 
   return (
     <div id="bookslist">
       <CategoryFilter handleFilterChange={ handleFilterChange }/>
-      <table style={{
-        width: '100%',
-      }}
-      >
-        <tbody>
-          {handleFilterChange().map(book => (
-            <tr key={book.id}>
-              <Book id={book.id} title={book.title} category={book.category} />
-              <td>
-                <button type="button" onClick={() => { handleRemoveBook(book.id); }}>Remove Book</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <BookStore bookslist={ handleFilterChange() } deleteBook={ handleRemoveBook }/>
     </div>
   );
 };
@@ -57,7 +46,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 BooksList.propTypes = {
-  books: PropTypes.objectOf(PropTypes.array).isRequired,
+  books: PropTypes.array.isRequired,
   removeBook: PropTypes.func.isRequired,
 };
 
