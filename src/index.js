@@ -40,7 +40,11 @@ const initialState = {
   ],
 };
 
-const store = createStore(combineReducers, { books: initialState.books, filter: initialState.books });
+const store = createStore(combineReducers,
+  {
+    books: initialState.books,
+    filter: initialState.books,
+  });
 
 ReactDOM.render(
   <React.StrictMode>
