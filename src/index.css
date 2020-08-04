@@ -1,27 +1,76 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: content-box;
 }
 
-code {
-  font-family:
-    source-code-pro,
-    Menlo,
-    Monaco,
-    Consolas,
-    'Courier New',
-    monospace;
+body {
+  margin: 0;
+  width: 1400px;
+  font-family: 'RobotoSlab';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgba(0, 0, 0, 0.05);
 }
+
+header {
+  width: 100%;
+  padding: 29px 100px;
+  height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 30px;
+  color: #0290ff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+}
+
+header li {
+  margin-left: 47px;
+  color: #121212;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+header span {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #f5f6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: self-end;
+}
+
+#profileImg {
+  width: 17px;
+  height: 17px;
+  color: #0290ff;
+}
+
+/* #bookslist {
+
+}
+#bookForm {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 29px;
+} */
