@@ -11,29 +11,31 @@ import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import combineReducers from './reducers/index';
 
+let setId = Math.floor(Math.random() * 100);
+
 const initialState = {
   books: [{
-    id: Math.floor(Math.random() * 10) + 1,
+    id: setId += 5,
     title: 'The Hunger Games',
     category: 'Action',
   },
   {
-    id: Math.floor(Math.random() * 20) + 11,
+    id: setId += 5,
     title: 'Harry Potter and the Order of the Phoenix',
     category: 'Sci-Fi',
   },
   {
-    id: Math.floor(Math.random() * 30) + 21,
+    id: setId += 5,
     title: 'To Kill a Mockingbird',
     category: 'Biography',
   },
   {
-    id: Math.floor(Math.random() * 40) + 31,
+    id: setId += 5,
     title: 'Pride and Prejudice',
     category: 'History',
   },
   {
-    id: Math.floor(Math.random() * 50) + 41,
+    id: setId += 5,
     title: 'Twilight',
     category: 'Kids',
   },
