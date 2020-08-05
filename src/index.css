@@ -206,6 +206,7 @@ header span {
   border-top: 1px solid rgba(0, 0, 0, 0.05);
   margin-top: 29px;
   padding: 0 100px;
+  margin-bottom: 3rem;
 }
 
 #bookForm h1 {
@@ -228,24 +229,35 @@ header span {
   height: 20px;
   width: 45%;
   border: 1px solid #e8e8e8;
+  border-radius: 3px;
 }
 
-#bookSelect {
+select {
   font-family: 'Montserrat', sans-serif;
   padding: 8px 10px;
   width: 23%;
   height: 20px;
   border: 1px solid #e8e8e8;
+  border-radius: 3px;
   background-color: white;
-}
-
-#bookSelect select {
-  width: 20px;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #c7c7c7 50%),
+    linear-gradient(135deg, #c7c7c7 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    0;
+  background-repeat: no-repeat;
 }
 
 #submitBtn {
   font-weight: bold;
   width: 23%;
-  height: 44px;
   margin: 0;
 }
