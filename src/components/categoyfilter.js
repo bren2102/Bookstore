@@ -6,14 +6,14 @@ const CategoryFilter = props => {
   const { handleFilterChange } = props;
   const categories = ['All', 'Action', 'Biography', 'History', 'Horror', 'Kids', 'Learning', 'Sci-Fi'];
   return (
-    <label>
-      Select category:
+    <div id="CategoryFilter">
+      <h2>Category:</h2>
       <select name="categoryName" onChange={event => handleFilterChange(event)}>
         {categories.map(category => (
-          <option key={category} value={category}>{category}</option>
+          <option key={category} value={category} className="bg-scroll">{category}</option>
         ))}
       </select>
-    </label>
+    </div>
   );
 };
 
