@@ -8,11 +8,10 @@
 }
 
 body {
-  font-family: 'RobotoSlab';
+  font-family: 'RobotoSlab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #f5f6fa;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +23,7 @@ body {
   flex-direction: column;
   background-color: #fafafa;
 }
+
 header {
   max-width: 100%;
   padding: 29px 100px;
@@ -85,13 +85,56 @@ header span {
   margin-bottom: 1rem;
 }
 
+.element-third > button,
+#submitBtn {
+  background-color: #0290ff;
+  border-radius: 3px;
+  border: transparent;
+  margin-top: 23px;
+  color: white !important;
+  width: 184px;
+  height: 33px;
+  text-align: center;
+}
+
+.element-third > p,
+.element-third > button {
+  font-family: 'Roboto Slab', serif;
+  font-weight: lighter;
+  font-size: 16px !important;
+}
+
+.element-second > div > h2,
+.element-second > div > p {
+  font-family: 'Montserrat', serif;
+  font-weight: normal;
+}
+
+.element-second > div > p {
+  font-size: 14px;
+  color: gray;
+}
+
+.element-third > p:first-child,
+.element-third > button {
+  font-size: 13px;
+  color: gray;
+}
+
+.element-third > button,
+.element-first > div > button,
+.element-first > div > span {
+  cursor: pointer;
+}
+
 .element-first > ul > li,
 .element-first > div > span,
-.element-first > div > button  {
+.element-first > div > button {
   font-size: 22px;
   font-weight: bold;
   font-family: 'Roboto Slab', serif;
 }
+
 .element-first > ul > li:not(:nth-child(2)),
 .element-first > div > span,
 .element-first > div > button {
@@ -123,11 +166,6 @@ header span {
   background: transparent;
   border: 0;
 }
-.element-first > div > span,
-.element-first > div > button,
-.element-third > button {
-  cursor: pointer;
-}
 
 .element-second {
   display: flex;
@@ -142,18 +180,8 @@ header span {
   color: #307bbe;
 }
 
-.element-second > div > h2,
-.element-second > div > p {
-  font-family: 'Montserrat', serif;
-  font-weight: normal;
-}
-
 .element-second > div > h2 {
   font-size: 32px;
-}
-.element-second > div > p {
-  font-size: 14px;
-  color: gray;
 }
 
 #line {
@@ -162,29 +190,6 @@ header span {
   width: 2px;
   background-color: #e8e8e8;
   margin-right: 60px;
-}
-.element-third > p,
-.element-third > button  {
-  font-family: 'Roboto Slab', serif;
-  font-weight: lighter;
-  font-size: 16px;
-}
-.element-third > p:first-child,
-.element-third > button  {
-  font-size: 13px;
-  color: gray;
-}
-
-.element-third > button,
-#submitBtn {
-  background-color: #0290ff;
-  border-radius: 3px;
-  border: transparent;
-  margin-top: 23px;
-  color: white;
-  width: 184px;
-  height: 33px;
-  text-align: center;
 }
 
 #span-divider {

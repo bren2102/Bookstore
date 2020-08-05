@@ -1,11 +1,9 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BooksList from '../containers/bookslist';
 import BooksForm from '../containers/booksform';
-
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 
 class App extends React.Component {
   render() {

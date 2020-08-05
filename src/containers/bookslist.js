@@ -30,7 +30,12 @@ const BooksList = props => {
         <tbody>
           {handleFilterChange().map(book => (
             <tr key={book.id}>
-              <Book id={book.id} title={book.title} category={book.category} remove={ handleRemoveBook }/>
+              <Book
+                id={book.id}
+                title={book.title}
+                category={book.category}
+                remove={handleRemoveBook}
+              />
             </tr>
           ))}
         </tbody>
