@@ -26,6 +26,7 @@ const BooksList = props => {
 
   const handleFilterChange = (category = 'All') => {
     let allKeys = Object.keys(listOfBooks);
+    let newState = [];
 
     if (category === 'All') {
       return allKeys;
@@ -34,11 +35,11 @@ const BooksList = props => {
       filteredKeys.map(key => db.child("books").on('value', querySnapShot => {
         let prevData = querySnapShot.val()[key] ? querySnapShot.val()[key] : {};
         let newData = {...prevData};
-        let newBooks = Object(newData);
-        console.log(Object.keys(newBooks));
+        newState.push(newData);
       }));
 
-      return allKeys;
+      setBooks(newState);
+      return Object.keys(listOfBooks);
     }
   };
 
