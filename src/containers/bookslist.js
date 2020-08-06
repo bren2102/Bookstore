@@ -26,11 +26,12 @@ const BooksList = props => {
 
   const handleFilterChange = (category = 'All') => {
     let allKeys = Object.keys(listOfBooks);
-
     if (category === 'All') {
       return allKeys;
     } else {
-      return allKeys.filter(key => listOfBooks[key].category === "Kids");
+      let filteredKeys = allKeys.filter(key => listOfBooks[key].category === category.target.value);
+      console.log(filteredKeys.map(key => db.orderByChild('books').equalTo(key)));
+      return allKeys;
     }
 
   };
