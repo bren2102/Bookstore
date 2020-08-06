@@ -43,7 +43,7 @@ Run `npm install` and `npm start` in your terminal/console.
 
 ## Screenshot
 
-![image](#)
+![image](https://i.imgur.com/ZTPeFYc.png)
 
 ## Author
 👤 **Brenda Yucra**
