@@ -26,14 +26,20 @@ const BooksList = props => {
 
   const handleFilterChange = (category = 'All') => {
     let allKeys = Object.keys(listOfBooks);
+
     if (category === 'All') {
       return allKeys;
     } else {
       let filteredKeys = allKeys.filter(key => listOfBooks[key].category === category.target.value);
-      console.log(filteredKeys.map(key => db.orderByChild('books').equalTo(key)));
+      filteredKeys.map(key => db.child("books").on('value', querySnapShot => {
+        let prevData = querySnapShot.val()[key] ? querySnapShot.val()[key] : {};
+        let newData = {...prevData};
+        let newBooks = Object(newData);
+        console.log(Object.keys(newBooks));
+      }));
+
       return allKeys;
     }
-
   };
 
 
