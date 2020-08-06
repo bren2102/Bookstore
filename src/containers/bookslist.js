@@ -19,18 +19,20 @@ const BooksList = props => {
     });
   }, []);
 
-  let allKeys = Object.keys(listOfBooks);
-
   const handleRemoveBook = book => {
     removeBook(book);
   };
 
 
   const handleFilterChange = (category = 'All') => {
+    let allKeys = Object.keys(listOfBooks);
+
     if (category === 'All') {
       return allKeys;
+    } else {
+      return allKeys.filter(key => listOfBooks[key].category === "Kids");
     }
-    return setBooks((category.target.value === 'All') ? allKeys : allKeys.filter(key => listOfBooks[key].category === category.target.value));
+
   };
 
 
