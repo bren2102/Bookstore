@@ -12,15 +12,6 @@ export const REMOVEBOOK = remove => async dispatch => {
   todosRef.child(remove).remove();
 };
 
-export const FETCHBOOKS = () => async dispatch => {
-  todosRef.on("value", snapshot => {
-   dispatch({
-     type: CREATE_BOOK,
-     payload: snapshot.val()
-   });
- });
-}
-
 export const CHANGEFILTER = filter => ({
   type: CHANGE_FILTER, filter,
 });

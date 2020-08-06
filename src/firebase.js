@@ -9,5 +9,5 @@ const config = {
   appId: "1:44707957004:web:f75230c895edc3bec0e129"
 }
 firebase.initializeApp(config);
-const databaseRef = firebase.database().ref();
-export const todosRef = databaseRef.child("books")
+export const db = firebase.database().ref();
+export const todosRef = db.child("books");

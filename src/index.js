@@ -44,7 +44,7 @@ const initialState = {
   ],
 };
 
-const store = createStore(combineReducers, applyMiddleware(reduxThunk));
+const store = createStore(combineReducers, { books: initialState.books }, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <React.StrictMode>

@@ -6,10 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Book extends React.Component {
   render() {
-    const { title } = this.props;
-    const { id } = this.props;
-    const { category } = this.props;
-    const { remove } = this.props;
+    const { title, id, category, remove, keyBook } = this.props;
 
     return (
       <td className="book-element">
@@ -25,7 +22,7 @@ class Book extends React.Component {
           <div>
             <span>Comments</span>
             <span id="span-divider"> | </span>
-            <button type="button" onClick={() => { remove(id); }}>Remove Book</button>
+            <button type="button" onClick={() => { remove(keyBook); }}>Remove Book</button>
             <span id="span-divider"> | </span>
             <span>Edit</span>
           </div>

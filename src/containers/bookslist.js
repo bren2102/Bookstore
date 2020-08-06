@@ -1,25 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { REMOVEBOOK, CHANGEFILTER } from '../actions/index';
 import CategoryFilter from '../components/categoyfilter';
 import Book from '../components/book';
+import { db } from '../firebase';
 
 const BooksList = props => {
-  const { books, removeBook, checkData} = props;
+  const { books, removeBook} = props;
   const [listOfBooks, setBooks] = useState(books);
+
+  useEffect(() => {
+    db.child("books").on('value', querySnapShot => {
+      let data = querySnapShot.val() ? querySnapShot.val() : {};
+      let allBooks = {...data};
+      let newBooks = Object(allBooks);
+      setBooks(newBooks);
+    });
+  }, []);
+
+  let allKeys = Object.keys(listOfBooks);
 
   const handleRemoveBook = book => {
     removeBook(book);
   };
 
+
   const handleFilterChange = (category = 'All') => {
     if (category === 'All') {
-      return listOfBooks;
+      return allKeys;
     }
-    return setBooks((category.target.value === 'All') ? books : books.filter(book => book.category === category.target.value));
+    return setBooks((category.target.value === 'All') ? allKeys : allKeys.filter(key => listOfBooks[key].category === category.target.value));
   };
-  console.log(checkData);
+
+
   return (
     <div id="bookslist">
       <CategoryFilter handleFilterChange={handleFilterChange} />
@@ -28,12 +42,13 @@ const BooksList = props => {
       }}
       >
         <tbody>
-          {handleFilterChange().map(book => (
-            <tr key={book.id}>
+          {handleFilterChange().map(key => (
+            <tr key={key}>
               <Book
-                id={book.id}
-                title={book.title}
-                category={book.category}
+                id={listOfBooks[key].id}
+                title={listOfBooks[key].title}
+                category={listOfBooks[key].category}
+                keyBook={key}
                 remove={handleRemoveBook}
               />
             </tr>
@@ -45,8 +60,7 @@ const BooksList = props => {
 };
 
 const mapStateToProps = state => ({
-  books: state.books,
-  filter: state.books
+  books: state.books
 });
 
 const mapDispatchToProps = dispatch => ({
