@@ -18,8 +18,7 @@ class BooksForm extends React.Component {
   }
 
   handleSubmit(event) {
-    const { title } = this.state;
-    const { category } = this.state;
+    const { title, category } = this.state;
     const { addBook } = this.props;
     let setId = Math.floor(Math.random() * 50) + 41;
     event.preventDefault();
@@ -56,7 +55,7 @@ class BooksForm extends React.Component {
 const mapDispatchToProps = dispatch => ({
   addBook: book => {
     dispatch(CREATEBOOK(book));
-  },
+  }
 });
 
 BooksForm.propTypes = {

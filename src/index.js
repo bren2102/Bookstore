@@ -4,8 +4,10 @@ import './index.css';
 import {
   Provider,
 } from 'react-redux';
+import reduxThunk from 'redux-thunk';
 import {
   createStore,
+  applyMiddleware
 } from 'redux';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
@@ -42,11 +44,7 @@ const initialState = {
   ],
 };
 
-const store = createStore(combineReducers,
-  {
-    books: initialState.books,
-    filter: initialState.books,
-  });
+const store = createStore(combineReducers, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <React.StrictMode>

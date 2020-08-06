@@ -6,7 +6,7 @@ import CategoryFilter from '../components/categoyfilter';
 import Book from '../components/book';
 
 const BooksList = props => {
-  const { books, removeBook } = props;
+  const { books, removeBook, checkData} = props;
   const [listOfBooks, setBooks] = useState(books);
 
   const handleRemoveBook = book => {
@@ -19,7 +19,7 @@ const BooksList = props => {
     }
     return setBooks((category.target.value === 'All') ? books : books.filter(book => book.category === category.target.value));
   };
-
+  console.log(checkData);
   return (
     <div id="bookslist">
       <CategoryFilter handleFilterChange={handleFilterChange} />
@@ -46,7 +46,7 @@ const BooksList = props => {
 
 const mapStateToProps = state => ({
   books: state.books,
-  filter: state.books,
+  filter: state.books
 });
 
 const mapDispatchToProps = dispatch => ({
