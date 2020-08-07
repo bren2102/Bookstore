@@ -7,15 +7,15 @@ import Book from '../components/book';
 import { db } from '../firebase';
 
 const BooksList = props => {
-  const { books, removeBook} = props;
+  const { books, removeBook } = props;
   const [listOfBooks, setBooks] = useState(books);
   const [isFiltered, setFilter] = useState(false);
 
   useEffect(() => {
-    db.child("books").on('value', querySnapShot => {
-      let data = querySnapShot.val() ? querySnapShot.val() : {};
-      let allBooks = {...data};
-      let newBooks = Object(allBooks);
+    db.child('books').on('value', querySnapShot => {
+      const data = querySnapShot.val() ? querySnapShot.val() : {};
+      const allBooks = { ...data };
+      const newBooks = Object(allBooks);
       setBooks(newBooks);
     });
   }, []);
@@ -25,50 +25,48 @@ const BooksList = props => {
   };
 
   const handleFilterChange = (category = 'All') => {
-    let allKeys = Object.keys(listOfBooks);
-    let newState = [];
-    let prevState = [];
+    const allKeys = Object.keys(listOfBooks);
+    const newState = [];
+    const prevState = [];
 
-    db.child("books").on('value', querySnapShot => {
-      let data = querySnapShot.val() ? querySnapShot.val() : {};
-      let allBooks = {...data};
+    db.child('books').on('value', querySnapShot => {
+      const data = querySnapShot.val() ? querySnapShot.val() : {};
+      const allBooks = { ...data };
       prevState.push(allBooks);
     });
 
     if (category === 'All') {
       return allKeys;
-    } else {
-      let filteredKeys = allKeys.filter(key => listOfBooks[key].category === category.target.value);
-      filteredKeys.map(key => db.child("books").on('value', querySnapShot => {
-        let prevData = querySnapShot.val()[key] ? querySnapShot.val()[key] : {};
-        let newData = {...prevData};
-        newState.push(newData);
-      }));
-
-      if(allKeys.length < Object.keys(prevState[0]).length){
-        setBooks(prevState[0]);
-        setFilter(false);
-      } else {
-        setBooks(newState);
-        setFilter(true);
-      }
-
-      return allKeys;
     }
+    const filteredKeys = allKeys.filter(key => listOfBooks[key].category === category.target.value);
+    filteredKeys.map(key => db.child('books').on('value', querySnapShot => {
+      const prevData = querySnapShot.val()[key] ? querySnapShot.val()[key] : {};
+      const newData = { ...prevData };
+      newState.push(newData);
+    }));
+
+    if (allKeys.length < Object.keys(prevState[0]).length) {
+      setBooks(prevState[0]);
+      setFilter(false);
+    } else {
+      setBooks(newState);
+      setFilter(true);
+    }
+
+    return allKeys;
   };
 
   function Filtered(state) {
-    const isFiltered = state.isFiltered;
-    if(isFiltered == true) {
-      return <button id="cleanButton" type="button" onClick={() => { handleFilterChange({target: 'All'}); }}>Return</button>
-    } else {
-      return <CategoryFilter handleFilterChange={handleFilterChange}/>
+    const { isFiltered } = state;
+    if (isFiltered === true) {
+      return <button id="cleanButton" type="button" onClick={() => { handleFilterChange({ target: 'All' }); }}>Return</button>;
     }
+    return <CategoryFilter handleFilterChange={handleFilterChange} />;
   }
 
   return (
     <div id="bookslist">
-      <Filtered isFiltered={isFiltered}/>
+      <Filtered isFiltered={isFiltered} />
       <table style={{
         width: '100%',
       }}
@@ -92,7 +90,7 @@ const BooksList = props => {
 };
 
 const mapStateToProps = state => ({
-  books: state.books
+  books: state.books,
 });
 
 const mapDispatchToProps = dispatch => ({

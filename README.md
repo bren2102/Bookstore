@@ -4,6 +4,9 @@ A bookstore application made with reactjs.
 ## Project specifications
 We made use of React and Redux to build a Bookstore application.
 
+## Milestone 6
+We made use of Firebase to create a backend for this application, making use of react hooks and the firebase library.
+
 ## Built With
 
 * Node.js
@@ -14,6 +17,7 @@ We made use of React and Redux to build a Bookstore application.
 * npm
 * CSS
 * ES6
+* Firebase
 
 Tools used on this project
 

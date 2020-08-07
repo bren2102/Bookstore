@@ -1,4 +1,6 @@
-import {todosRef} from '../firebase'
+/* eslint-disable no-unused-vars */
+import { todosRef } from '../firebase';
+
 export const CREATE_BOOK = 'CREATE_BOOK';
 
 export const REMOVE_BOOK = 'REMOVE_BOOK';

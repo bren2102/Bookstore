@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Book extends React.Component {
   render() {
-    const { title, id, category, remove, keyBook } = this.props;
+    const {
+      title, id, category, remove, keyBook,
+    } = this.props;
 
     return (
       <td className="book-element">
@@ -50,6 +52,7 @@ Book.propTypes = {
   title: PropTypes.string,
   category: PropTypes.string,
   remove: PropTypes.func.isRequired,
+  keyBook: PropTypes.number.isRequired,
 };
 
 Book.defaultProps = {
