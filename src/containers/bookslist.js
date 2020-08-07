@@ -22,8 +22,20 @@ const BooksList = props => {
   const handleRemoveBook = book => {
     removeBook(book);
   };
+  
+  // let cFilter = document.getElementById("cFilter");
+  // let cButton = document.getElementById("cleanButton");
+  let isFiltered = false;
 
-
+  function fChange(state = isFiltered){
+    if (state) {
+      state = false;
+      return state;
+    } else {
+      state = true;
+      return state;
+    }
+  }
   const handleFilterChange = (category = 'All') => {
     let allKeys = Object.keys(listOfBooks);
     let newState = [];
@@ -44,21 +56,34 @@ const BooksList = props => {
         let newData = {...prevData};
         newState.push(newData);
       }));
-
+      
       if(allKeys.length < Object.keys(prevState[0]).length){
         setBooks(prevState[0]);
+        fChange();
       } else {
         setBooks(newState);
+        fChange();
       }
 
       return allKeys;
     }
   };
 
+  console.log(fChange());
+
+  function Filtered(isFiltered) {
+    if (isFiltered === true) {
+      return (<button type="button">Go Back</button>);
+    }
+    return <CategoryFilter handleFilterChange={handleFilterChange} />
+  }
+
+  console.log(isFiltered);
 
   return (
     <div id="bookslist">
-      <CategoryFilter handleFilterChange={handleFilterChange} />
+      <Filtered isFiltered={isFiltered} />
+      
       <table style={{
         width: '100%',
       }}

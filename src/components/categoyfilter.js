@@ -8,7 +8,7 @@ const CategoryFilter = props => {
   return (
     <div id="CategoryFilter">
       <h2>Category:</h2>
-      <select name="categoryName" onChange={event => handleFilterChange(event)}>
+      <select name="categoryName" id="selectInput" onChange={event => handleFilterChange(event)}>
         {categories.map(category => (
           <option key={category} value={category} className="bg-scroll">{category}</option>
         ))}
