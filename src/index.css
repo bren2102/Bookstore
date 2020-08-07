@@ -278,3 +278,14 @@ select {
   margin-right: 1rem;
   margin-bottom: 10px;
 }
+
+#cleanButton {
+  background-color: #0290ff;
+  border-radius: 3px;
+  font-weight: bold;
+  width: 23%;
+  margin: 1rem 0;
+  height: 37px;
+  color: white;
+  border: 1px solid #0290ff;
+}

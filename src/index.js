@@ -4,49 +4,28 @@ import './index.css';
 import {
   Provider,
 } from 'react-redux';
+import reduxThunk from 'redux-thunk';
 import {
   createStore,
+  applyMiddleware,
 } from 'redux';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 import combineReducers from './reducers/index';
 
-let setId = Math.floor(Math.random() * 100);
-
 const initialState = {
-  books: [{
-    id: setId += 5,
-    title: 'The Hunger Games',
-    category: 'Action',
-  },
-  {
-    id: setId += 5,
-    title: 'Harry Potter and the Order of the Phoenix',
-    category: 'Sci-Fi',
-  },
-  {
-    id: setId += 5,
-    title: 'To Kill a Mockingbird',
-    category: 'Biography',
-  },
-  {
-    id: setId += 5,
-    title: 'Pride and Prejudice',
-    category: 'History',
-  },
-  {
-    id: setId += 5,
-    title: 'Twilight',
-    category: 'Kids',
-  },
+  books: [
+    {
+      id: 0,
+      title: 'You have not added a book yet',
+      category: 'This is a category',
+    },
   ],
 };
 
 const store = createStore(combineReducers,
-  {
-    books: initialState.books,
-    filter: initialState.books,
-  });
+  { books: initialState.books },
+  applyMiddleware(reduxThunk));
 
 ReactDOM.render(
   <React.StrictMode>
